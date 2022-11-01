@@ -1,0 +1,30 @@
+/*  Create DataBase */
+USE master ;  
+GO  
+CREATE DATABASE myDatabase  
+ON ( 
+	NAME = myDatabase_dat,  
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\myDatabase.mdf',  
+    SIZE = 10,  
+    MAXSIZE = 50,  
+    FILEGROWTH = 5 
+	)  
+LOG ON ( 
+	NAME = myDatabase_log,  
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\myDatabase.ldf',  
+    SIZE = 5MB,  
+    MAXSIZE = 25MB,  
+    FILEGROWTH = 5MB 
+	) ;  
+GO
+/* Use DataBase */
+use myDatabase;
+CREATE TABLE htw(
+    ID INT NOT NULL PRIMARY KEY
+	IDENTITY,
+    Name VARCHAR (50)
+	NOT NULL,
+    Family VARCHAR (50) 
+	NOT NULL,
+	Lock INT default 0
+);
